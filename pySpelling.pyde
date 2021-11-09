@@ -1,17 +1,15 @@
 # Global variables
 wordList = ['said', 'dead', 'head', 'bread']
 wordPointer = 0
-wlLen = len(wordList)
 w = 1200
 h = 700
 endL = len(wordList[wordPointer])
 count = 0
-click = 0
 
 def setup():
     size(w, h)
     background(0)
-    frameRate(70)
+    frameRate(80)
 
 def draw():
     controls()
@@ -44,10 +42,11 @@ def controls():
     ### start over box
     if  (mousePressed) and (mouseX < cw) and (mouseY < 100):
         stroke(255,0,0)
+        background(0)
         global wordPointer
         wordPointer = 0
         global endL 
-        endL = 0
+        endL = len(wordList[wordPointer])
         global count
         count = 0
     else:
@@ -56,8 +55,8 @@ def controls():
     rect(0, 0, cw, 100)
     ### next box
     if  (mousePressed) and (mouseX > cw) and (mouseX < cw*2) and (mouseY < 100):
-        #delay(3000)
         stroke(255,0,0)
+        delay(1000)
         global count
         count = count + 1
         global endL
@@ -65,15 +64,18 @@ def controls():
         if (endL < 0):
             global wordPointer
             wordPointer = wordPointer +1
+            if (wordPointer == len(wordList)):
+                global wordPointer
+                wordPointer = 0
             global endL
             endL = len(wordList[wordPointer])
+            global count
+            count = 0
         background(0)
+        print('word', wordList[wordPointer])
         print('count', count)
         print('endL', endL)
         print('wordPointer', wordPointer)
-        print('millis', millis())
-        print('click', click)
-        print('millis - click', (millis() - click))
     else:
         stroke(0)
     fill(0xFF000080)
