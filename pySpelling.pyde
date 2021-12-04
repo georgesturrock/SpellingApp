@@ -16,6 +16,8 @@ def setup():
     size(w, h)
     background(0)
     frameRate(90)
+    #global sf
+    #sf = SoundFile(this, wordList[0]+".wav")
 
 def draw():
     controls()
@@ -132,4 +134,5 @@ def soundIcon():
     
 def playSound():
     print("Turn up the volume")
-    delay(800)
+    #sf.play()
+    delay(500)
