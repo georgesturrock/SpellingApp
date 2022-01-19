@@ -2,12 +2,21 @@
 add_library("sound")
 
 # Global variables
-## sh words
-###wordList = ['ship', 'shark', 'fish', 'push', 'rash']
-## ch words
-wordList = ['chap', 'ranch', 'lunch', 'inch', 'nacho']
+## sh words 11/23/2021
+#wordList = ['ship', 'shark', 'fish', 'push', 'rash']
+## ch words 11/30/2021
+#wordList = ['chap', 'ranch', 'lunch', 'inch', 'nacho']
+## th words 12/6/2021
+#wordList = ['moth', 'bath', 'three', 'then', 'think']
+## wh words 12/13/2021
+#wordList = ['why', 'what', 'when', 'where', 'white']
+## er workds 1/14/2022
+#wordList = ['verb', 'over', 'after', 'herd', 'ever']
+## ir workds 1/21/2022
+wordList = ['stir', 'twirl', 'first', 'circle', 'thirsty', 'girl', 'birthday', 'third']
+
 wordPointer = 0
-w = 1200
+w = 1300
 h = 700
 endL = len(wordList[wordPointer])
 count = 0
@@ -16,8 +25,8 @@ def setup():
     size(w, h)
     background(0)
     frameRate(90)
-    #global sf
-    #sf = SoundFile(this, wordList[0]+".wav")
+    global sf
+    sf = SoundFile(this, wordList[0]+".wav")
 
 def draw():
     controls()
@@ -133,6 +142,7 @@ def soundIcon():
 #            print("bottom Y", (sy*.8)+(sy*0.4))
     
 def playSound():
-    print("Turn up the volume")
-    #sf.play()
-    delay(500)
+    print("Pump up the volume")
+    sf = SoundFile(this, wordList[wordPointer]+".wav")
+    sf.play()
+    delay(400)
