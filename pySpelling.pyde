@@ -13,11 +13,20 @@ add_library("sound")
 ## er workds 1/14/2022
 #wordList = ['verb', 'over', 'after', 'herd', 'ever']
 ## ir workds 1/21/2022
-wordList = ['stir', 'twirl', 'first', 'circle', 'thirsty', 'girl', 'birthday', 'third']
+#uordList = ['stir', 'twirl', 'first', 'circle', 'thirsty', 'girl', 'birthday', 'third']
+## ir workds 1/21/2022
+#wordList = ['turn', 'burn', 'purple', 'turtle', 'nurse', 'Thursday', 'burst', 'hurt']
+## ar workds 2/4/2022
+#wordList = ['farm', 'yarn', 'garden', 'sharpen', 'spark', 'alarm', 'barking', 'shark']
+## or words
+#wordList = ['fork', 'thorn', 'forest', 'orbit', 'morning', 'record', 'torch', 'major']
+## oo workds
+wordList = ['soon', 'tooth', 'broom', 'mushroom', 'scoot', 'booth', 'shampoo', 'baboon']
+
 
 wordPointer = 0
-w = 1300
-h = 700
+w = 1600
+h = 750
 endL = len(wordList[wordPointer])
 count = 0
 
@@ -49,7 +58,7 @@ def wordBoxes(letters):
     for l in letters:
         noFill()
         stroke(255,255,255)
-        rect((i*boxWidth), 400, boxWidth, 300)
+        rect((i*boxWidth), 400, boxWidth, 350)
         i = i + 1
     
 def controls():
@@ -114,7 +123,7 @@ def controls():
     text('Erase', cw*2.3, 60) #950
     
 def soundIcon():
-    sx = w/9
+    sx = w/10
     sy = h/3
     stroke(255)
     strokeWeight(4)
@@ -142,7 +151,9 @@ def soundIcon():
 #            print("bottom Y", (sy*.8)+(sy*0.4))
     
 def playSound():
-    print("Pump up the volume")
-    sf = SoundFile(this, wordList[wordPointer]+".wav")
-    sf.play()
-    delay(400)
+    try:
+        sf = SoundFile(this, wordList[wordPointer]+".wav")
+        sf.play()
+        delay(400)
+    except Exception as e:
+        print("It ain't got no gas in it!!!")    
